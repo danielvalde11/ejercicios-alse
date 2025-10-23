@@ -207,7 +207,7 @@ int main() {
                 sistema.mostrarTodosLosVehiculos();
                 break;
             case 0:
-                cout << "\n¡Gracias por usar el sistema! 👋\n" << endl;
+                cout << "\n¡Gracias por usar el sistema!\n" << endl;
                 break;
             default:
                 cout << "Opción inválida. Intente nuevamente." << endl;
