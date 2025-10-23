@@ -47,17 +47,17 @@ void Libro::mostrarInfo() const {
 Biblioteca::Biblioteca() {}
 void Biblioteca::agregarLibro(const Libro& libro) {
     libros.push_back(libro);
-    cout << "✓ Libro agregado exitosamente!\n";
+    cout << "Libro agregado exitosamente!\n";
 }
 bool Biblioteca::eliminarLibro(const string& isbn) {
     for (auto it = libros.begin(); it != libros.end(); ++it) {
         if (it->getISBN() == isbn) {
             libros.erase(it);
-            cout << "✓ Libro eliminado exitosamente!\n";
+            cout << "Libro eliminado exitosamente!\n";
             return true;
         }
     }
-    cout << "✗ Libro no encontrado.\n";
+    cout << "Libro no encontrado.\n";
     return false;
 }
 void Biblioteca::mostrarLibrosDisponibles() const {
@@ -140,23 +140,23 @@ int main() {
         cin.ignore();
         switch(opcion) {
             case 1: {
-                cout << "\n→ Título: ";
+                cout << "\nTítulo: ";
                 getline(cin, titulo);
-                cout << "→ Autor: ";
+                cout << "Autor: ";
                 getline(cin, autor);
-                cout << "→ ISBN: ";
+                cout << "ISBN: ";
                 getline(cin, isbn);   
                 biblioteca.agregarLibro(Libro(titulo, autor, isbn));
                 break;
             }
             case 2: {
-                cout << "\n→ ISBN del libro a eliminar: ";
+                cout << "\nISBN del libro a eliminar: ";
                 getline(cin, isbn);
                 biblioteca.eliminarLibro(isbn);
                 break;
             }
             case 3: {
-                cout << "\n→ Título a buscar: ";
+                cout << "\nTítulo a buscar: ";
                 getline(cin, busqueda);
                 auto resultados = biblioteca.buscarPorTitulo(busqueda);   
                 if (resultados.empty()) {
@@ -170,13 +170,13 @@ int main() {
                 break;
             }
             case 4: {
-                cout << "\n→ Autor a buscar: ";
+                cout << "\nAutor a buscar: ";
                 getline(cin, busqueda);
                 auto resultados = biblioteca.buscarPorAutor(busqueda);   
                 if (resultados.empty()) {
-                    cout << "✗ No se encontraron libros.\n";
+                    cout << "No se encontraron libros.\n";
                 } else {
-                    cout << "\n✓ Se encontraron " << resultados.size() << " libro(s):\n";
+                    cout << "\nSe encontraron " << resultados.size() << " libro(s):\n";
                     for (auto libro : resultados) {
                         libro->mostrarInfo();
                     }
@@ -190,7 +190,7 @@ int main() {
                 biblioteca.mostrarTodosLosLibros();
                 break;
             case 7: {
-                cout << "\n→ ISBN del libro: ";
+                cout << "\nISBN del libro: ";
                 getline(cin, isbn);
                 Libro* libro = biblioteca.buscarPorISBN(isbn);   
                 if (libro) {
@@ -206,7 +206,7 @@ int main() {
                 cout << "\n¡Hasta pronto!\n";
                 break;   
             default:
-                cout << "\n✗ Opción inválida.\n";
+                cout << "\nOpción inválida.\n";
         }
     } while(opcion != 0);    
     return 0;
